@@ -1,4 +1,5 @@
 <template>
+	<Header />
 	<!-- data binding v-model to title props from Collapsible -->
 	<Collapsible v-model:title="titles.contact">
 		<ContactForm />
