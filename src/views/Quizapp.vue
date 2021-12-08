@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import Quizapp from '../components/Quizapp.vue';
+	import Quizapp from '../components/Quizapp.vue';
 
-export default {
-	components: {
-		Quizapp,
-	},
-};
+	export default {
+		components: {
+			Quizapp,
+		},
+	};
 </script>

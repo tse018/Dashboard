@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import SortTable from '../components/SortTable.vue';
+	import SortTable from '../components/SortTable.vue';
 
-export default {
-	components: {
-		SortTable,
-	},
-};
+	export default {
+		components: {
+			SortTable,
+		},
+	};
 </script>

@@ -1,10 +1,13 @@
 <template>
-   <!-- if task is done, then put it in task__done, 
+   <!-- 
+      if task is done, then put it in task__done, 
       otherwise don´t do anything 
    -->
    <div :class="`task ${task.done ? 'task__done' : ''}`">
 
-      <!-- emit methods gets triggered whenever user clicks on font-icon   -->
+      <!-- 
+         emit method gets triggered whenever user clicks on font-icon
+      -->
       <button @click="eventDone" class="task__button" aria-label="Done">
          <TodoIcons :font="'done'" /> 
       </button>
@@ -14,12 +17,13 @@
          :ref is added so it can be used to register what task input user write
          and returns as a object.
       -->
-
-         <input :ref="task.id" type="text" v-model="task.text" placeholder="Add a new task" />
+         <input :ref="task.id" type="text" v-model="task.text" placeholder="New Todo" />
 
       </div>
 
-      <!-- emit method gets triggered whenever user clicks on font-icon  -->
+      <!-- 
+         emit method gets triggered whenever user clicks on font-icon
+      -->
 
       <button @click="eventRemove" class="task__button" aria-label="Remove">
          <TodoIcons :font="'remove'" />
@@ -52,19 +56,18 @@
          in this case we want to update todolist tasks by removing, add or update the task.
       */
 
-      update() {
-         this.$emit('update', this.task);
-      },
-
       methods: {
+
          // eventDone custom made event triggers when user click on done-button, which is specified in TodoIcons component
          eventDone() {
             this.$emit('done', this.task);
          },
+
          // eventRemove custom made event trigger when user click on remove-button, which is specified in TodoIcons component
          eventRemove() {
             this.$emit('remove', this.task);
          },
+
       },
    };
 </script>

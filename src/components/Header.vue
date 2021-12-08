@@ -1,31 +1,54 @@
 <template>
 	<header class="header">
 		<div class="header__container">
-			<div class="header__logo">#Logo</div>
+
+			<div class="header__logo">
+				#Logo
+			</div>
+
 			<nav class="nav">
 				<img class="nav__hamburger-menu" v-bind:class="{ toggle: toggle }" @click="hamburgerOnClick" src="../../assets/hamburger-menu.svg" alt="" />
 
 				<img class="nav__hamburger-close" v-bind:class="{ toggle: !toggle }" @click="hamburgerOnClick" src="../../assets/hamburger-close.svg" alt="" />
 				
 				<ul @click="hamburgerOnClick" class="nav__links-container" v-bind:class="{ toggle: !toggle }">
+
 					<li>
-						<router-link to="/">Home</router-link>
+						<router-link to="/">
+							Home
+						</router-link>
 					</li>
+
 					<li>
-						<router-link to="/contactform">Contact form</router-link>
+						<router-link to="/contactform">
+							Contact form
+						</router-link>
 					</li>
+
 					<li>
-						<router-link to="/quizapp">Quiz app</router-link>
+						<router-link to="/quizapp">
+							Quiz app
+						</router-link>
 					</li>
+
 					<li>
-						<router-link to="slideshow">Slideshow</router-link>
+						<router-link to="slideshow">
+							Slideshow
+						</router-link>
 					</li>
+
 					<li>
-						<router-link to="sorttable">Sort table</router-link>
+						<router-link to="sorttable">
+							Sort table
+						</router-link>
 					</li>
+
 					<li>
-						<router-link to="/todolist">Todo list</router-link>
+						<router-link to="/todolist">
+							Todo list
+						</router-link>
 					</li>
+
 				</ul>
 			</nav>
 		</div>
@@ -51,7 +74,7 @@ export default {
 .header {
 	background-color: var(--primary);
 	padding: 1rem;
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 }
 
 .header__container {

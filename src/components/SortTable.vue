@@ -135,17 +135,14 @@
    margin: 0 auto;
 }
 .table {
-    border-collapse: collapse;
-    border-radius: 2px;
+   border-collapse: collapse;
+   border-radius: 2px;
 }
-
-
 
 .table__item--category-header{
    font-weight: bold;
    padding: 1rem;
 }
-
 
 .table__sort-button {
    background-color: black;
@@ -154,7 +151,7 @@
    padding: 1rem;
    font-weight: bold;
    border-radius: 2px;
-    max-width: 550px;
+   max-width: 550px;
 }
 
 .table__sort-button:hover {
@@ -163,8 +160,8 @@
 }
 
 .table-container {
-  margin: 0 auto;
-  max-width: 550px;
+   margin: 0 auto;
+   max-width: 550px;
 }
 
 .table {

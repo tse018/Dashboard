@@ -1,16 +1,16 @@
 <template>
 	<div class="slideshow">
 		<button @click="previousImage" class="slideshow__previous">
-			<i class="fas fa-arrow-left fa-4x"></i>
+			<i class="fas fa-arrow-left fa-3x"></i>
 		</button>
 
 		<button @click="nextImage" class="slideshow__next">
-			<i class="fas fa-arrow-right fa-4x"></i>
+			<i class="fas fa-arrow-right fa-3x"></i>
 		</button>
 
 		<div class="slideshow__information">
 			<button @click="showDetails = !showDetails" class="slideshow__information--button">
-				<i class="fas fa-info fa-4x"></i>
+				<i class="fas fa-info fa-3x"></i>
 			</button>
 		</div>
 
@@ -22,12 +22,6 @@
 			</figcaption>
 		</figure>
 
-		<div class="slideshow__dots">
-			
-			<button @click="goToIndex(index)" v-for="(slide, index) in slides" :aria-label="`Go to image ${index + 1}`" class="slideshow__dot">
-			</button>
-
-		</div>
 	</div>
 </template>
 
@@ -38,16 +32,12 @@ export default {
 			index: 0,
 			showDetails: false,
 			slides: [
-				{ title: 'firstImage', caption: 'bilde1', file: 'assets/Picture01.jpg' },
-				{ title: 'secondImage', caption: 'bilde2', file: 'assets/Picture02.jpg' },
-				{ title: 'thirdImage', caption: 'bilde3', file: 'assets/Picture03.jpg' },
-				{ title: 'fourthImage', caption: 'bilde4', file: 'assets/Picture04.jpg' },
-				{ title: 'fifthImage', caption: 'bilde5', file: 'assets/Picture05.jpg' },
-				{ title: 'sixthImage', caption: 'bilde6', file: 'assets/Picture06.jpg' },
-				{ title: 'sixthImage', caption: 'bilde7', file: 'assets/Picture07.jpg' },
-				{ title: 'sixthImage', caption: 'bilde8', file: 'assets/Picture08.jpg' },
-				{ title: 'sixthImage', caption: 'bilde9', file: 'assets/Picture09.jpg' },
-				{ title: 'sixthImage', caption: 'bilde10', file: 'assets/Picture10.jpg' },
+				{ title: 'firstImage', caption: 'picture1', file: 'assets/Picture01.jpg' },
+				{ title: 'secondImage', caption: 'picture2', file: 'assets/Picture02.jpg' },
+				{ title: 'thirdImage', caption: 'picture3', file: 'assets/Picture03.jpg' },
+				{ title: 'fourthImage', caption: 'picture4', file: 'assets/Picture04.jpg' },
+				{ title: 'fifthImage', caption: 'picture5', file: 'assets/Picture05.jpg' },
+				{ title: 'sixthImage', caption: 'picture6', file: 'assets/Picture06.jpg' },
 			],
 		};
 	},
@@ -70,6 +60,7 @@ export default {
 		goToIndex(index) {
 			this.index = index;
 		},
+
 	},
 };
 </script>
@@ -81,7 +72,7 @@ export default {
 	top: 1;
 	max-width: 550px;
 	bottom: 80px;
-	/* max-height: 350px; */
+	border: var(--component-border)
 }
 
 .slideshow__previous {
@@ -91,7 +82,6 @@ export default {
 	color: white;
 	cursor: pointer;
 	opacity: 0.5;
-	
 }
 
 .slideshow__previous:hover {
@@ -124,7 +114,6 @@ export default {
 	color: white;
 	cursor: pointer;
 	opacity: 0.7;
-	
 }
 
 .slideshow__information--button:hover {
@@ -133,14 +122,10 @@ export default {
 
 .slideshow__container {
 	border: 2px solid #e5e5e5;
-	/* max-height: 350px; */
-
 }
 
 .slideshow__img {
 	object-fit: cover;
-	/* max-height: 350px; */
-
 }
 
 .slideshow__figcaption {

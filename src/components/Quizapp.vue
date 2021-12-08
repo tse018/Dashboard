@@ -12,7 +12,9 @@
 		(NOTE: This can be better solved with v-for, have to take a look at it )
 		-->
 		<div class="quiz-app__answers-container">
-			<p @click="checkAnswer" class="quiz-app__answers-container--answers" v-for="question in currentQuestion.answers">
+			<p v-if="this.questionsList.length === this.questionIndex + 1" @click="nextQuestion" class="quiz-app__answers-container--answers-end"> Click here to reset </p>
+
+			<p v-else @click="checkAnswer" class="quiz-app__answers-container--answers" v-for="question in currentQuestion.answers">
 				{{ question }}
 			</p>
 		</div>
@@ -22,11 +24,11 @@
 			{{ outputText }}
 		</p>
 
-		<button v-if="this.questionsList.length === this.questionIndex + 1" @click="nextQuestion">
+		<button class="quiz-app__button" v-if="this.questionsList.length === this.questionIndex + 1" @click="nextQuestion">
 			Reset
 		</button>
 
-		<button @click="nextQuestion" v-else>
+		<button class="quiz-app__button" @click="nextQuestion" v-else>
 			Next question
 		</button>
 
@@ -73,11 +75,11 @@ export default {
 					correctAnswer: 'D',
 				},
 				{	
-					question: 'Click reset to start over'
+					question: 'No more questions'
 				},
 			],
 
-			outputText: 'Output text here',
+			outputText: 'No more questions',
 		};
 	},
 
@@ -122,7 +124,7 @@ export default {
 				this.questionIndex += 1;
 			}
 
-			this.outputText = "output text here";
+			this.outputText = "Output text here";
 		},
 
 		//Checks whether the first character in the answer you click matches with the correctAnswer in the current question (which is detirmed by the questionIndex)
@@ -149,7 +151,7 @@ export default {
 	top: 20px;
 	max-width: 550px;
 	background-color: var(--primary);
-	border: 2px solid #e5e5e5;
+	border: var(--component-border);
 	border-radius: 2px;
 	padding: 1rem 0;
 }
@@ -160,13 +162,15 @@ export default {
 	padding: 1rem;
 }
 
-.quiz-app__answers-container--answers-done {
+.quiz-app__answers-container--answers-end {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.151);
 	font-size: 2rem;
-	padding: 4.59rem;
+	padding: 5.6rem 1rem;
 	font-weight: bold;
 	cursor: pointer;
 	background-color: white;
+	margin-bottom: 1rem;
+	text-align: center;
 }
 .quiz-app__answers-container--answers {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.151);
@@ -196,14 +200,14 @@ export default {
 	padding: 1rem;
 	background-color: white;
 	text-align: center;
-	font-weight: bold;
+	font-style: italic;
 }
 
 .quiz-app__button {
 	margin-top: 1.5rem;
 	width: 100%;
 	border-radius: 2px;
-	padding: 0.7em 1em;
+	padding: 1em 1em;
 	background-color: black;
 	color: white;
 	cursor: pointer;
