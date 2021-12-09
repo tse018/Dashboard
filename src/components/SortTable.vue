@@ -1,20 +1,20 @@
 <template>
-   <button class="table__controller" @click="toggleSortOrder">
+   <button @click="toggleSortOrder">
       Click here to sort table: {{ sort.key }} ({{ sort.order.toUpperCase() }})
    </button>
 
-   <table class="table">
-      <thead class="table__header">
-         <tr class="table__list">
-            <td class="table__item">
+   <table>
+      <thead>
+         <tr>
+            <td>
 
-               <button class="table__click" @click="sortBy('name')"> 
+               <button @click="sortBy('name')"> 
                   Name
                </button>
 
             </td>
 
-            <td class="table__item">
+            <td>
 
                <button @click="sortBy('year')"> 
                   Year
@@ -22,7 +22,7 @@
 
             </td>
 
-            <td class="table__item">
+            <td>
 
                <button @click="sortBy('color')"> 
                   Color
@@ -30,7 +30,7 @@
 
             </td>
 
-            <td class="table__item">
+            <td>
 
                <button @click="sortBy('country')"> 
                   Country
@@ -40,7 +40,7 @@
          </tr>
       </thead>
 
-      <tbody class="table__value">
+      <tbody>
          <tr v-for="row in naturalSort">
 
             <td v-for="value in row">
@@ -67,18 +67,6 @@
 
             content: JSON.parse(mockData),
          };
-      },
-
-      created() {
-         const query = this.$route.query;
-
-         if (query.sort) {
-            this.sort.key = query.sort;
-         }
-
-         if (query.order) {
-            this.sort.order = query.order;
-         }
       },
 
       computed: {
@@ -117,12 +105,10 @@
       methods: {
          sortBy(key) {
             this.sort.key = key;
-            this.$router.push({ query: { ...this.$route.query, sort: this.sort.key } })
          },
 
          toggleSortOrder() {
             this.sort.order = this.sort.order === 'asc' ? 'desc' : 'asc';
-            this.$route.push({ query: { ...this.$route.query, order: this.sort.order } })
          },
       },
    };
@@ -130,53 +116,4 @@
 
 
 <style>
-.table-container {
-   max-width: 1440px;
-   margin: 0 auto;
-}
-.table {
-   border-collapse: collapse;
-   border-radius: 2px;
-}
-
-.table__item--category-header{
-   font-weight: bold;
-   padding: 1rem;
-}
-
-.table__sort-button {
-   background-color: black;
-   color: white;
-   width: 100%;
-   padding: 1rem;
-   font-weight: bold;
-   border-radius: 2px;
-   max-width: 550px;
-}
-
-.table__sort-button:hover {
-   background-color: rgb(80, 80, 80);
-   cursor: pointer;
-}
-
-.table-container {
-   margin: 0 auto;
-   max-width: 550px;
-}
-
-.table {
-   max-width: 550px;
-	border: 2px solid #e5e5e5;
-   width: 100%;
-}
-
-.table__value--item {
-   border-bottom: 1px solid rgba(231, 231, 231, 0.63);
-   padding: 1rem
-}
-
-.table__item {
-   background-color: var(--primary);
-   font-weight: bold;
-}
 </style>

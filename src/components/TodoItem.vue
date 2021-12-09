@@ -12,12 +12,12 @@
          <TodoIcons :font="'done'" /> 
       </button>
 
-      <div class="task__writeTask">
+      <div class="task__container">
       <!-- 
          :ref is added so it can be used to register what task input user write
          and returns as a object.
       -->
-         <input :ref="task.id" type="text" v-model="task.text" placeholder="New Todo" />
+         <input class="task__input" :ref="task.id" type="text" v-model="task.text" placeholder="New Todo" />
 
       </div>
 
