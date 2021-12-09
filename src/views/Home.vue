@@ -10,7 +10,7 @@
 	</Collapsible>
 
 	<Collapsible v-model:title="titles.quiz">
-		<Quizapp />
+		<Quiz />
 	</Collapsible> 
 
 	<Collapsible v-model:title="titles.todo">
@@ -29,7 +29,7 @@
 	import ContactForm from '../components/ContactForm.vue';
 	import Slideshow from '../components/Slideshow.vue';
 	import SortTable from '../components/SortTable.vue';
-	import Quizapp from '../components/Quizapp.vue';
+	import Quiz from '../components/Quiz.vue';
 	import TodoList from '../components/TodoList.vue';
 	import Collapsible from '../components/Collapsible.vue';
 
@@ -38,7 +38,7 @@
 			Header,
 			ContactForm,
 			Slideshow,
-			Quizapp,
+			Quiz,
 			SortTable,
 			TodoList,
 			Collapsible,
