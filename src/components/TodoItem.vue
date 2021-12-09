@@ -12,14 +12,11 @@
          <TodoIcons :font="'done'" /> 
       </button>
 
-      <div class="task__container">
       <!-- 
          :ref is added so it can be used to register what task input user write
          and returns as a object.
       -->
          <input class="task__input" :ref="task.id" type="text" v-model="task.text" placeholder="New Todo" />
-
-      </div>
 
       <!-- 
          emit method gets triggered whenever user clicks on font-icon

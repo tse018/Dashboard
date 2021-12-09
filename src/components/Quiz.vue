@@ -1,49 +1,47 @@
 <template>
    <div class="quiz">
 
-      <!-- 
-         if showScore = true, this entire div block will show -->
-      <div class="quiz__score" v-if="showScore">
+      <div class="quiz__container" v-if="!showScore">
 
-         <!-- which means the quiz is over and can reveal the score out of how many questions -->
-         <div class="quiz__result">
-            You score {{ score }} of {{ questions }}
-         </div>
-
-      </div>
-
-      <div class="quiz__container">
-
-         <button class="quiz__button" v-if="!beginQuiz" @click="startQuiz"> 
+         <button @click="startQuiz" v-if="!beginQuiz" class="quiz__button">
             Click to start the Quiz
          </button>
 
-         <div v-else="beginQuiz">
-            Quiz have started
+         <div v-else="beginQuiz" class="quiz__started">
+            <h2 class="quiz__title">
+               Quiz have started
+            </h2>
+
+            <div class="quiz__counts">
+               Question Number {{ currentQuestion + 1 }} / {{ questions.length }}
+            </div>
+
+            <div class="quiz__countdown">
+               {{ countDown }}
+            </div>
+
+            <div class="quiz__task">
+               {{ questions[currentQuestion].questionText }}
+            </div>
+
+            <div class="quiz__options">
+
+               <button @click="checkAnswers" :key="index" v-for="(answer, index) in questions[currentQuestion].answerOptions" class="quiz__button">
+                  {{ answer.option }}
+               </button>
+
+            </div>
          </div>
-
-         <div class="quiz__number">
-            Question Number {{ currentQuestion + 1 }} / {{ questions.length }}
+      </div>
+      
+      <!-- if showScore = true, this entire div block will show -->
+      <div class="quiz__score" v-if="showScore">
+         <div class="quiz__result">
+            You scored {{ score }} of {{ questions.length }}
          </div>
-
-         <div class="quiz__countdown">
-            {{ countDown }}
-         </div>
-
-         <div class="quiz__text">
-            {{ questions[currentQuestion].questionText }}
-         </div>
-
-         <div class="quiz__options">
-
-            <button class="quiz__button" :key="index" v-for="(answer, index) in questions[currentQuestion].answerOptions" @click="checkAnswers">
-               {{ answer.option }}
-            </button>
-
-         </div>
-
       </div>
    </div>
+
 </template>
 
 <script>
@@ -94,14 +92,14 @@
                      { option: '', answer: false },
                      { option: '', answer: false },
                      { option: '', answer: false },
-                     { option: '', answer: true },
+                     { option: 'sdf', answer: true },
                   ],
                },
 
                {
                   questionText: 'bla bla?',
                   answerOptions: [
-                     { option: '', answer: false },
+                     { option: 'sdf', answer: false },
                      { option: '', answer: false },
                      { option: '', answer: false },
                      { option: '', answer: true },
@@ -149,4 +147,14 @@
 </script>
 
 <style>
+   .quiz {
+      border: 2px solid red;
+      height: 200px;
+   }
+
+   .quiz__button {
+      font-size: 30px;
+      padding: 20px 0 0 100px;;
+   }
+
 </style>
