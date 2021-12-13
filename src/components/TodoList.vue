@@ -1,8 +1,6 @@
 <template>
 	<div class="todo">
-		<!--
-			if tasks array is empty, show this code
-		-->
+		<!-- if tasks array is empty -->
 			<button class="todo__empty-tasks" v-if="tasks.length === 0" @click="addTask">
 				Click to add a todo to get started
 			</button>
@@ -18,17 +16,13 @@
 				<div class="todo__items-container">
 					<div class="todo__items">
 						
-						<!-- 
-							this code will show when user have undone tasks - computed
-						--> 
+						<!-- this code will show when user have undone tasks - computed and user got emit options --> 
 						<TodoItem @done="doneTask" @remove="removeTask" v-for="task in pendingTasks" :task="task" />
 
 						</div>
 					</div>
 
-					<!-- 
-						when user is done with a task, this code will show up
-					-->
+					<!--  when user is done with a task, this.task will be moved here-->
 					<TodoItem @done="doneTask" @remove="removeTask" :task="task" v-for="task in doneTasks" />
 				</template>
 
@@ -50,6 +44,8 @@
 				<button class="todo__add-task" @click="addTask">
 
 					<div class="todo__add-task--items-container">
+						<TodoIcons :font="'add'" />
+
 						New Todo
 					</div>
 

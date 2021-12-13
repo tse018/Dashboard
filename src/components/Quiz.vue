@@ -26,7 +26,7 @@
 
             <div class="quiz__options">
 
-               <button @click="checkAnswers(answer.answer)" v-for="(answer, index) in questions[currentQuestion].answerOptions" class="quiz__button">
+               <button @click="checkAnswers(answer.check)" v-for="(answer, index) in questions[currentQuestion].answerOptions" class="quiz__button">
                   {{ answer.option }}
                </button>
 
@@ -59,82 +59,82 @@
                {
                   questionText: 'Hvilken av disse filmene vant Oscar for beste film??',
                   answerOptions: [
-                     { option: 'Hei', answer: false },
-                     { option: 'Hade', answer: false },
-                     { option: 'Kanskje', answer: false },
-                     { option: 'Yes', answer: true },
+                     { option: 'Hei', check: false },
+                     { option: 'Hade', check: false },
+                     { option: 'Kanskje', check: false },
+                     { option: 'Yes', check: true },
                   ],
                },
                {
                   questionText: 'rew?',
                   answerOptions: [
-                     { option: 'aNo', answer: false },
-                     { option: 'Adf', answer: false },
-                     { option: 'dgs', answer: false },
-                     { option: 'Ja', answer: true },
+                     { option: 'aNo', check: false },
+                     { option: 'Adf', check: false },
+                     { option: 'dgs', check: false },
+                     { option: 'Ja', check: true },
                   ],
                },
                {
                   questionText: 'rew?',
                   answerOptions: [
-                     { option: 'aNo', answer: false },
-                     { option: 'Adf', answer: false },
-                     { option: 'dgs', answer: false },
-                     { option: 'Ja', answer: true },
+                     { option: 'aNo', check: false },
+                     { option: 'Adf', check: false },
+                     { option: 'dgs', check: false },
+                     { option: 'Ja', check: true },
                   ],
                },
                {
                   questionText: 'rew?',
                   answerOptions: [
-                     { option: 'aNo', answer: false },
-                     { option: 'Adf', answer: false },
-                     { option: 'dgs', answer: false },
-                     { option: 'Ja', answer: true },
+                     { option: 'aNo', check: false },
+                     { option: 'Adf', check: false },
+                     { option: 'dgs', check: false },
+                     { option: 'Ja', check: true },
                   ],
                },
                {
                   questionText: 'rew?',
                   answerOptions: [
-                     { option: 'aNo', answer: false },
-                     { option: 'Adf', answer: false },
-                     { option: 'dgs', answer: false },
-                     { option: 'Ja', answer: true },
+                     { option: 'aNo', check: false },
+                     { option: 'Adf', check: false },
+                     { option: 'dgs', check: false },
+                     { option: 'Ja', check: true },
                   ],
                },
                {
                   questionText: 'rew?',
                   answerOptions: [
-                     { option: 'aNo', answer: false },
-                     { option: 'Adf', answer: false },
-                     { option: 'dgs', answer: false },
-                     { option: 'Ja', answer: true },
+                     { option: 'aNo', check: false },
+                     { option: 'Adf', check: false },
+                     { option: 'dgs', check: false },
+                     { option: 'Ja', check: true },
                   ],
                },
                {
                   questionText: 'rew?',
                   answerOptions: [
-                     { option: 'aNo', answer: false },
-                     { option: 'Adf', answer: false },
-                     { option: 'dgs', answer: false },
-                     { option: 'Ja', answer: true },
+                     { option: 'aNo', check: false },
+                     { option: 'Adf', check: false },
+                     { option: 'dgs', check: false },
+                     { option: 'Ja', check: true },
                   ],
                },
                {
                   questionText: 'rew?',
                   answerOptions: [
-                     { option: 'aNo', answer: false },
-                     { option: 'Adf', answer: false },
-                     { option: 'dgs', answer: false },
-                     { option: 'Ja', answer: true },
+                     { option: 'aNo', check: false },
+                     { option: 'Adf', check: false },
+                     { option: 'dgs', check: false },
+                     { option: 'Ja', check: true },
                   ],
                },
                {
                   questionText: 'rew?',
                   answerOptions: [
-                     { option: 'aNo', answer: false },
-                     { option: 'Adf', answer: false },
-                     { option: 'dgs', answer: false },
-                     { option: 'Ja', answer: true },
+                     { option: 'aNo', check: false },
+                     { option: 'Adf', check: false },
+                     { option: 'dgs', check: false },
+                     { option: 'Ja', check: true },
                   ],
                },
             ],

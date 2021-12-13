@@ -7,9 +7,9 @@
 			</div>
 
 			<nav class="nav">
-				<img class="nav__hamburger-menu" v-bind:class="{ toggle: toggle }" @click="hamburgerOnClick" src="../../assets/hamburger-menu.svg" alt="" />
+				<img class="nav__hamburger-menu" v-bind:class="{ toggle: toggle }" />
 
-				<img class="nav__hamburger-close" v-bind:class="{ toggle: !toggle }" @click="hamburgerOnClick" src="../../assets/hamburger-close.svg" alt="" />
+				<img class="nav__hamburger-close" v-bind:class="{ toggle: !toggle }" />
 				
 				<ul @click="hamburgerOnClick" class="nav__links-container" v-bind:class="{ toggle: !toggle }">
 

@@ -6,7 +6,7 @@
 				when its !collapsed then show fas fa-caret-square-down icon,
 				otherwise don´t do anything
 			-->
-			<button @click="toggleDetails" :class="`collapsible__arrow fa-lg fas fa-chevron-circle-right${!collapsed ? 'fas fa-caret-square-down' : ' '}`">
+			<button @click="toggleDetails" :class="`collapsible__arrow fa-lg fas fa-chevron-circle-right${collapsed ? 'fas fa-caret-square-down' : ' '}`">
 
 				<!-- v-model {{ title is props and its value gets rendered from Home.vue }} -->
 				<div class="collapsible__title">
@@ -18,7 +18,7 @@
 		</div>
 
 		<!-- slot takes content from another component and render taken components content -->
-		<div class="collapsible__components" v-if="!collapsed">
+		<div class="collapsible__components" v-if="collapsed">
 			<slot />
 		</div>
 
@@ -27,9 +27,8 @@
 
 <script>
 export default {
-	/* 
-	props value can be sent to other componets, default value just in case props fail
-	*/
+	/* props value can be sent to other componets, default value just in case props fail */
+
 	props: {
 		title: {
 			type: String,
@@ -39,7 +38,7 @@ export default {
 
 	data() {
 		return {
-			collapsed: true,
+			collapsed: false,
 		};
 	},
 

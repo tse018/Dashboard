@@ -16,11 +16,9 @@
          :ref is added so it can be used to register what task input user write
          and returns as a object.
       -->
-         <input class="task__input" :ref="task.id" type="text" v-model="task.text" placeholder="New Todo" />
+         <input class="task__input" :ref="task.id" type="text" v-model="task.text" placeholder="New Todo" v-on:keyup.enter="eventDone" />
 
-      <!-- 
-         emit method gets triggered whenever user clicks on font-icon
-      -->
+      <!-- emit method gets triggered whenever user clicks on font-icon -->
 
       <button @click="eventRemove" class="task__button" aria-label="Remove">
          <TodoIcons :font="'remove'" />
@@ -42,7 +40,8 @@
          task: { type: Object },
       },
 
-      // $refs document.querySelector task.id input in HTML and focus... need to ask Alejandro
+      // $refs document.querySelector task.id input in HTML and focus highlights the input box
+      
       mounted() {
          this.$refs[this.task.id].focus();
       },
@@ -58,6 +57,11 @@
          // eventDone custom made event triggers when user click on done-button, which is specified in TodoIcons component
          eventDone() {
             this.$emit('done', this.task);
+         },
+
+         // event listener when clicking on add-button, which is specified in TodoIcons component
+         eventAdd() {
+            this.$emit('add', this.task);
          },
 
          // eventRemove custom made event trigger when user click on remove-button, which is specified in TodoIcons component
