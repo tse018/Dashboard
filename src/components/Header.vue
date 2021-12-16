@@ -1,152 +1,82 @@
 <template>
 	<header class="header">
-		<div class="header__container">
-
-			<div class="header__logo">
-				#Logo
-			</div>
-
-			<nav class="nav">
-				<img class="nav__hamburger-menu" v-bind:class="{ toggle: toggle }" />
-
-				<img class="nav__hamburger-close" v-bind:class="{ toggle: !toggle }" />
-				
-				<ul @click="hamburgerOnClick" class="nav__links-container" v-bind:class="{ toggle: !toggle }">
-
-					<li>
-						<router-link to="/">
-							Home
-						</router-link>
-					</li>
-
-					<li>
-						<router-link to="/contactform">
-							Contact form
-						</router-link>
-					</li>
-
-					<li>
-						<router-link to="/quizapp">
-							Quiz app
-						</router-link>
-					</li>
-
-					<li>
-						<router-link to="slideshow">
-							Slideshow
-						</router-link>
-					</li>
-
-					<li>
-						<router-link to="sorttable">
-							Sort table
-						</router-link>
-					</li>
-
-					<li>
-						<router-link to="/todolist">
-							Todo list
-						</router-link>
-					</li>
-
-				</ul>
-			</nav>
-		</div>
+		<RouterLink :to="{ name: 'home' }" class="header__logo">
+			Dashboard
+		</RouterLink>
+		
+		<nav class="header__mobile">
+			<MobileMenu />
+		</nav>
+		
+		<nav class="header__menu">
+			<ul>
+				<li>
+					<RouterLink v-for="page in navigationPages" :to=" { name: page.title , params: { page_id: page.id }}" class="header__links">
+						{{ page.title }}
+					</RouterLink>
+				</li>
+			</ul>
+		</nav>	
 	</header>
 </template>
 
 <script>
+	import MobileMenu from '../components/MobileMenu.vue';
 
-export default {
-	data() {
-		return {
-			toggle: true,
-		};
-	},
-	methods: {
-		hamburgerOnClick() {
-			this.toggle = !this.toggle
-		},
-	},
-};
+	export default {
+		components: {
+				MobileMenu
+			},
+
+			computed: {
+				navigationPages() {
+					return this.$store.getters.getPages;
+				}
+			},
+	};
 </script>
 
 <style>
-.header {
-	background-color: var(--primary);
-	padding: 1rem;
-	margin-bottom: 3rem;
-}
-
-.header__container {
-	max-width: 1440px;
-	margin: 0 auto;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.header__logo {
-	font-weight: bold;
-}
-
-/* Hamburger menu icons */
-.nav__hamburger-menu {
-	display: none;
-}
-
-.nav__hamburger-close {
-	display: none;
-	width: 44px;
-}
-
-.nav__links-container {
-	display: flex;
-	gap: 1rem;
-	justify-content: center;
-}
-
-a {
-	color: black;
-	font-weight: bold;
-	text-decoration: none;
-}
-a:hover {
-	color: #7a7a7a;
-	text-decoration: underline;
-}
-
-@media (max-width: 660px) {
-	.nav__hamburger-menu {
-		width: 44px;
+	.header {
+		position: relative;
+		background-color: #E5E5E5;
+		height: 50px;
+		margin-bottom: 50px;
 	}
-	.nav__links-container {
+
+	.header__logo {
 		position: absolute;
-		z-index: 900;
-		top: 75;
-		left: 0;
-		padding: 1rem 0 0 0;
-		background-color: var(--primary);
-		width: 100%;
-		height: 100vh;
+		font-size: 40px;
+		height: 20px;
+		margin-left: 25px;
+		display: flex;
+	}
+
+	.header__menu {
+		position: absolute;
+		right: 0;
+		font-size: 25px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.header__links {
+		text-decoration: none;
+		margin: 10px 20px 0 10px;
+		color: black;
+	}
+
+	.header__mobile {
 		display: none;
-		text-align: center;
 	}
 
-	.nav__links-container li + li {
-		margin-top: 1rem;
-	}
+	@media screen and (max-width: 800px) {
+		.header__mobile {
+			display: block;
+		}
 
-	.nav__hamburger-menu {
-		display: none;
+		.header__menu {
+			display: none;
+		}
 	}
-
-	.nav__hamburger-close {
-		display: none;
-	}
-
-	.toggle {
-		display: block;
-	}
-}
 </style>

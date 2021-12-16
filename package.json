@@ -19,13 +19,13 @@
   },
   "homepage": "https://github.com/tse018/vue_starter_template#readme",
   "dependencies": {
-    "vue": "^3.2.24",
+    "vue": "^3.2.26",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.10.2",
-    "@vue/compiler-sfc": "^3.2.24",
-    "vite": "^2.7.0"
+    "@vue/compiler-sfc": "^3.2.26",
+    "vite": "^2.7.2"
   }
 }

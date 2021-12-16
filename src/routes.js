@@ -6,10 +6,10 @@ import SortTable from './views/SortTable.vue';
 import TodoList from './components/TodoList.vue';
 
 export default [
-   { name: 'home', path: '/', component: Home },
-   { name: 'slideshow', path: '/slideshow', component: Slideshow },
-   { name: 'contactform', path: '/contactform', component: ContactForm },
-   { name: 'quizapp', path: '/quizapp', component: Quizapp },
-   { name: 'sorttable', path: '/sorttable', component: SortTable },
-   { name: 'todolist', path: '/todolist', component: TodoList },
+   { name: 'home',            path: '/',                 component: Home },
+   { name: 'slideshow',       path: '/slideshow',        component: Slideshow },
+   { name: 'contactform',     path: '/contactform',      component: ContactForm },
+   { name: 'quizapp',         path: '/quizapp',          component: Quizapp },
+   { name: 'sorttable',       path: '/sorttable',        component: SortTable },
+   { name: 'todolist',        path: '/todolist',         component: TodoList },
 ]

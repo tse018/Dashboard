@@ -4,26 +4,23 @@
       otherwise don´t do anything 
    -->
    <div :class="`task ${task.done ? 'task__done' : ''}`">
-
       <!-- 
          emit method gets triggered whenever user clicks on font-icon
       -->
-      <button @click="eventDone" class="task__button" aria-label="Done">
+      <button @click="eventDone" class="task__finish" aria-label="Done">
          <TodoIcons :font="'done'" /> 
       </button>
 
       <!-- 
-         :ref is added so it can be used to register what task input user write
+         :ref is added so it can be used to register what task input user write,
          and returns as a object.
       -->
-         <input class="task__input" :ref="task.id" type="text" v-model="task.text" placeholder="New Todo" v-on:keyup.enter="eventDone" />
+         <input class="task__input" :ref="task.id" type="text" v-model="task.text" placeholder="New Todo" v-on:keyup.enter="eventDone" aria-label="write what you want to do" />
 
       <!-- emit method gets triggered whenever user clicks on font-icon -->
-
-      <button @click="eventRemove" class="task__button" aria-label="Remove">
+      <button @click="eventRemove" class="task__remove" aria-label="Remove">
          <TodoIcons :font="'remove'" />
       </button>
-
    </div>
 </template>
 
@@ -41,7 +38,6 @@
       },
 
       // $refs document.querySelector task.id input in HTML and focus highlights the input box
-      
       mounted() {
          this.$refs[this.task.id].focus();
       },
@@ -53,7 +49,6 @@
       */
 
       methods: {
-
          // eventDone custom made event triggers when user click on done-button, which is specified in TodoIcons component
          eventDone() {
             this.$emit('done', this.task);
@@ -68,10 +63,31 @@
          eventRemove() {
             this.$emit('remove', this.task);
          },
-
       },
    };
 </script>
 
 <style>
+   .task {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      padding: 10px;
+   }
+
+   .task__input {
+      width: 350px;
+      border-radius: 40px;
+      padding-left: 15px;
+   }
+
+   .task__finish {
+      text-decoration: line-through;
+      color: rgb(124, 124, 124);
+   }
+
+   .task__done input {
+      text-decoration: line-through;
+      color: rgb(124, 124, 124);
+   }
 </style>

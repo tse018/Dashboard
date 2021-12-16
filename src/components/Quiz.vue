@@ -1,9 +1,7 @@
 <template>
    <div class="quiz">
-
       <div class="quiz__container" v-if="!showScore">
-
-         <button @click="startQuiz" v-if="!beginQuiz" class="quiz__button">
+         <button @click="startQuiz" v-if="!beginQuiz" class="quiz__start-button">
             Click to start the Quiz
          </button>
 
@@ -12,7 +10,7 @@
                Quiz have started
             </h2>
 
-            <div class="quiz__counts">
+            <div class="quiz__counting-quiz">
                Question Number {{ currentQuestion + 1 }} / {{ questions.length }}
             </div>
 
@@ -25,23 +23,20 @@
             </div>
 
             <div class="quiz__options">
-
                <button @click="checkAnswers(answer.check)" v-for="(answer, index) in questions[currentQuestion].answerOptions" class="quiz__button">
                   {{ answer.option }}
                </button>
-
             </div>
          </div>
       </div>
-      
-      <!-- if showScore = true, this entire div block will show -->
+
+      <!-- if showScore = true, this entire score result will show -->
       <div class="quiz__score" v-if="showScore">
          <div class="quiz__result">
             You scored {{ score }} of {{ questions.length }}
          </div>
       </div>
    </div>
-
 </template>
 
 <script>
@@ -57,84 +52,84 @@
 
             questions: [
                {
-                  questionText: 'Hvilken av disse filmene vant Oscar for beste film??',
+                  questionText: 'What does "FTP" stand for in the computer and internet world?',
                   answerOptions: [
-                     { option: 'Hei', check: false },
-                     { option: 'Hade', check: false },
-                     { option: 'Kanskje', check: false },
-                     { option: 'Yes', check: true },
+                     { option: 'Free To Play',              check: false },
+                     { option: 'File Transfer Protocol',    check: true },
+                     { option: 'Free Transfer Protocol',    check: false },
+                     { option: 'Free Training Program',     check: false },
                   ],
                },
                {
-                  questionText: 'rew?',
+                  questionText: 'In what year was Google launched on the web?',
                   answerOptions: [
-                     { option: 'aNo', check: false },
-                     { option: 'Adf', check: false },
-                     { option: 'dgs', check: false },
-                     { option: 'Ja', check: true },
+                     { option: '1990', check: false },
+                     { option: '2005', check: false },
+                     { option: '2001', check: false },
+                     { option: '1998', check: true },
                   ],
                },
                {
-                  questionText: 'rew?',
+                  questionText: 'Who painted the Mona Lisa',
                   answerOptions: [
-                     { option: 'aNo', check: false },
-                     { option: 'Adf', check: false },
-                     { option: 'dgs', check: false },
-                     { option: 'Ja', check: true },
+                     { option: 'Leonardo Da Vinci',  check: true },
+                     { option: 'Picasso',            check: false },
+                     { option: 'Gustave Eiffel',     check: false },
+                     { option: 'Bram Stocker',       check: false },
                   ],
                },
                {
-                  questionText: 'rew?',
+                  questionText: 'What is the first element in the periodic table?',
                   answerOptions: [
-                     { option: 'aNo', check: false },
-                     { option: 'Adf', check: false },
-                     { option: 'dgs', check: false },
-                     { option: 'Ja', check: true },
+                     { option: 'Li',   check: false },
+                     { option: 'H',    check: true },
+                     { option: 'Hs',   check: false },
+                     { option: 'Ra',   check: false },
                   ],
                },
                {
-                  questionText: 'rew?',
+                  questionText: 'How many eyes does a honeybee have?',
                   answerOptions: [
-                     { option: 'aNo', check: false },
-                     { option: 'Adf', check: false },
-                     { option: 'dgs', check: false },
-                     { option: 'Ja', check: true },
+                     { option: 'Four',    check: false },
+                     { option: 'Three',   check: false },
+                     { option: 'Two',     check: false },
+                     { option: 'Five',    check: true },
                   ],
                },
                {
-                  questionText: 'rew?',
+                  questionText: 'Who was the dictator of Cuba?',
                   answerOptions: [
-                     { option: 'aNo', check: false },
-                     { option: 'Adf', check: false },
-                     { option: 'dgs', check: false },
-                     { option: 'Ja', check: true },
+                     { option: 'Saddam Hussain',       check: true },
+                     { option: 'Fidel Castro',         check: false },
+                     { option: 'George Washington',    check: false },
+                     { option: 'Muammar Gaddafi',      check: false },
                   ],
                },
                {
-                  questionText: 'rew?',
+                  questionText: 'Who is the dictator of Cuba?',
                   answerOptions: [
-                     { option: 'aNo', check: false },
-                     { option: 'Adf', check: false },
-                     { option: 'dgs', check: false },
-                     { option: 'Ja', check: true },
+                     { option: 'George Washington',     check: false },
+                     { option: 'Muammar Gaddafi',       check: false },
+                     { option: 'Fidel Castro',          check: true },
+                     { option: 'Saddam Hussain',        check: false },
                   ],
                },
                {
-                  questionText: 'rew?',
+                  questionText: 'Which vegetable can be sweet or bitter?',
                   answerOptions: [
-                     { option: 'aNo', check: false },
-                     { option: 'Adf', check: false },
-                     { option: 'dgs', check: false },
-                     { option: 'Ja', check: true },
+                     { option: 'Potato',     check: false },
+                     { option: 'Onion',      check: false },
+                     { option: 'Lemons',     check: false },
+                     { option: 'Pepper',     check: true },
                   ],
                },
                {
-                  questionText: 'rew?',
+                  questionText: 'What is the largest vegetable?',
                   answerOptions: [
-                     { option: 'aNo', check: false },
-                     { option: 'Adf', check: false },
-                     { option: 'dgs', check: false },
-                     { option: 'Ja', check: true },
+                     { option: 'Pumpkin',     check: true },
+                     { option: 'Cabbage',     check: false },
+                     { option: 'Cucumber',    check: false },
+                     { option: 'Squash',      check: false },
                   ],
                },
             ],
@@ -172,20 +167,62 @@
                   this.checkAnswers(false);
                }
             }
-
          },
       };
 </script>
 
 <style>
    .quiz {
+      position: relative;
       border: 2px solid red;
-      height: 200px;
+   }
+
+   .quiz__container {
+      width: 500px;
+      height: 250px;
+   }
+
+   .quiz__start-button {
+      font-size: 40px;
+      font-weight: bold;
+      margin: 60px;
+   }
+
+   .quiz__title {
+      font-size: 20px;
+      font-weight: bold;
+   }
+
+   .quiz__counting-quiz {
+      position: absolute;
+      bottom: 0;
+      font-size: 20px;
+   }
+
+   .quiz__countdown {
+      position: absolute;
+      font-style: italic;
+      right: 20;
+      top: 0;
+      font-size: 25px;
+      color: red;
+   }    
+
+   .quiz__task {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+   }
+
+   .quiz__options {
+      display: flex;
+      height: 100px;
    }
 
    .quiz__button {
-      font-size: 30px;
-      padding: 20px 0 0 100px;;
+      margin: auto;
+      font-size: 25px;
+      cursor: pointer;
    }
 
 </style>
